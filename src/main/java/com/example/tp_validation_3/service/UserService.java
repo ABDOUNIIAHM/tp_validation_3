@@ -117,4 +117,13 @@ public class UserService implements IntUserService {
         }
         return true;
     }
+
+    @Override
+    public User findByEmail(String email) {
+        Optional<User> user = userRepository.findByEmail(email);
+        if(user.isEmpty()){
+            throw new RuntimeException("User with email:"+ email+" not found !");
+        }
+        return user.get();
+    }
 }
