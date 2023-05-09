@@ -31,12 +31,12 @@ public class UserService implements IntUserService {
         userRepository.save(optUser.get());
     }
     @Override
-    public List<Contact> findAllContacts(Long userId) {
+    public List<Contact> findAllContacts(long userId) {
         User user = findById(userId);
         return user.getContacts();
     }
     @Override
-    public User findById(Long id) {
+    public User findById(long id) {
         Optional<User> optUser = userRepository.findById(id);
         if(userRepository.findById(id).isEmpty()){
             throw new RuntimeException("User with id: "+id+" not found !");
@@ -44,7 +44,7 @@ public class UserService implements IntUserService {
         return optUser.get();
     }
     @Override
-    public Contact findContactByName(Long userId, String name) {
+    public Contact findContactByName(long userId, String name) {
         List<Contact> contacts = findAllContacts(userId);
         return contacts
                 .stream()
@@ -53,7 +53,7 @@ public class UserService implements IntUserService {
                 .get();
     }
     @Override
-    public void addContactForUser(Long id, Contact contact) {
+    public void addContactForUser(long id, Contact contact) {
 
         User user = findById(id);
         contact.setUser(user);
@@ -63,13 +63,13 @@ public class UserService implements IntUserService {
 
     }
     @Override
-    public void updateContactOfUser(Long idUser, Contact contact) {
+    public void updateContactOfUser(long idUser, Contact contact) {
 
         User user = findById(idUser);
         List<Contact> contacts = findAllContacts(idUser);
         Optional<Contact> toUpdate = contacts
                 .stream()
-                .filter(contact1 -> contact1.getId().equals(contact.getId()))
+                .filter(contact1 -> contact1.getId()==(contact.getId()))
                 .findFirst();
         if(toUpdate.isEmpty()){
             throw new RuntimeException("contact to update not found !");
@@ -83,12 +83,12 @@ public class UserService implements IntUserService {
     }
 
     @Override
-    public void deleteContactFromUser(Long id, Long idContact) {
+    public void deleteContactFromUser(long id, long idContact) {
         User user = findById(id);
         List<Contact> contacts = user.getContacts();
         Optional<Contact> toDelete = contacts
                 .stream()
-                .filter(contact1 -> contact1.getId().equals(idContact))
+                .filter(contact1 -> contact1.getId()==(idContact))
                 .findFirst();
         if(toDelete.isEmpty()){
             throw new RuntimeException("contact to delete not found !");

@@ -11,10 +11,10 @@ import java.util.Optional;
 public interface IntUserService {
     User createUser(User user);
     void updateUser(User user);
-    List<Contact> findAllContacts(Long userId);
-    User findById(Long id);
-    Contact findContactByName(Long userId, String name);
-    void addContactForUser(Long id,Contact contact);
-    void updateContactOfUser(Long id, Contact contact);
-    void deleteContactFromUser(Long id, Long idContact);
+    List<Contact> findAllContacts(long userId);
+    User findById(long id);
+    Contact findContactByName(long userId, String name);
+    void addContactForUser(long id,Contact contact);
+    void updateContactOfUser(long id, Contact contact);
+    void deleteContactFromUser(long id, long idContact);
 }
