@@ -39,23 +39,20 @@ public class UserController {
     }
     @GetMapping("/edit")
     public String getFormToEdit(HttpServletRequest req, Model model) {
+
         long id = Long.parseLong(req.getParameter("id"));
-        req.setAttribute("id",id);
-        System.out.println(id);
-        System.out.println("============================");
-        System.out.println("============================");
+        Contact contact = userService.findAllContacts(1)
+                .stream().filter(c -> c.getId()==id)
+                .findFirst().get();
+
+        model.addAttribute("contact",contact);
         return "edit-contact";
     }
     @PostMapping("/edit")
-    public String editContact(Contact c,HttpServletRequest req, Model model){
-       long id = (long) req.getAttribute("id");
+    public String editContact(@RequestParam long id,@ModelAttribute("contact") Contact c){
+
        c.setId(id);
-       System.out.println(c.getId() + "" + c.getFirstName());
        userService.updateContactOfUser(1,c);
-
-        List<Contact> contacts = userService.findAllContacts(1);
-                model.addAttribute("contacts",contacts);
-                return "home";
-
+       return "redirect:/contacts";
     }
 }

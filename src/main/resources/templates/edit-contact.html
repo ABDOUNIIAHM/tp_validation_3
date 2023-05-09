@@ -9,21 +9,21 @@
 <body>
 <div th:replace="header :: header"></div>
 <div class="container">
-    <form method="post" action="@{/contacts/edit/{id}(id=${id})}">
+    <form th:object="${contact}" method="post" action="/contacts/edit">
         <div class="input-group mb-3">
-            <input type="text" class="form-control" name="firstName" placeholder="modify first name...">
+            <input type="text" class="form-control" th:field="*{firstName}" th:value="${contact.firstName}">
         </div>
         <div class="input-group mb-3">
-            <input type="text" class="form-control" name="lastName" placeholder="modify last name...">
+            <input type="text" class="form-control" th:field="*{lastName}" th:value="${contact.lastName}">
         </div>
         <div class="input-group mb-3">
-            <input type="text" class="form-control" name="enterprise" placeholder="modify enterprise...">
+            <input type="text" class="form-control" th:field="*{enterprise}" th:value="${contact.enterprise}">
         </div>
         <div class="input-group mb-3">
-            <input type="email" class="form-control" name="email" placeholder="modify email...">
+            <input type="email" class="form-control" th:field="*{email}" th:value="${contact.email}">
         </div>
         <div class="input-group">
-            <button name="id" type="submit" class="btn btn-outline-dark" th:value="${id}">Submit</button>
+            <button name="id" type="submit" class="btn btn-outline-dark" th:value="${contact.id}">Submit</button>
         </div>
     </form>
 </div>
