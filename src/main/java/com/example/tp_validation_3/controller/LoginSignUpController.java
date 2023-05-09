@@ -3,7 +3,6 @@ package com.example.tp_validation_3.controller;
 import com.example.tp_validation_3.entity.User;
 import com.example.tp_validation_3.service.UserService;
 import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpSession;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,7 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
 @AllArgsConstructor
-public class SignUpController {
+public class LoginSignUpController {
     private final UserService userService;
     @GetMapping("/signup")
     public String registerUser(Model model){
