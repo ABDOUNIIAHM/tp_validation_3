@@ -19,9 +19,6 @@ public class User {
     private String email;
     private String password;
     private String photo;
-    @ManyToMany(fetch = FetchType.EAGER)
-    @JoinTable(name = "contact_book",
-            joinColumns = @JoinColumn(name = "idUser"),
-            inverseJoinColumns = @JoinColumn(name = "idContact"))
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL,fetch = FetchType.LAZY)
     private List<Contact> contacts = new ArrayList<>();
 }
