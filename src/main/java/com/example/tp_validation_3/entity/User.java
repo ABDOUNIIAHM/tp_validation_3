@@ -13,15 +13,12 @@ import java.util.List;
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private long id;
     private String firstName;
     private String lastName;
     private String email;
     private String password;
     private String photo;
-    @ManyToMany(fetch = FetchType.EAGER)
-    @JoinTable(name = "contact_book",
-            joinColumns = @JoinColumn(name = "idUser"),
-            inverseJoinColumns = @JoinColumn(name = "idContact"))
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL,fetch = FetchType.LAZY)
     private List<Contact> contacts = new ArrayList<>();
 }

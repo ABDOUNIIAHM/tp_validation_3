@@ -7,16 +7,19 @@ import java.util.List;
 
 @Entity
 @Table(name="contact")
-@Getter @Setter @ToString
+@Getter @Setter
 @NoArgsConstructor @AllArgsConstructor
 public class Contact {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private long id;
     private String firstName;
     private String lastName;
     private String enterprise;
     private String email;
+    @ManyToOne
+    @JoinColumn(name = "idUser")
+    private User user;
 
 }
