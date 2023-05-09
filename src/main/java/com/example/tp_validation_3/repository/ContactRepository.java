@@ -9,5 +9,7 @@ import java.util.Optional;
 @Repository
 public interface ContactRepository extends JpaRepository<Contact,Long> {
     Contact findByEmail(String email);
+    Contact findByLastName(String lastName);
     Optional<Contact> findById(Long id);
+
 }
