@@ -3,7 +3,9 @@ package com.example.tp_validation_3.controller;
 import com.example.tp_validation_3.entity.Contact;
 import com.example.tp_validation_3.service.UserService;
 import jakarta.servlet.http.HttpServlet;
+
 import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpSession;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,6 +18,7 @@ import java.util.List;
 @RequestMapping("/contacts")
 public class UserController {
     private final UserService userService;
+    private HttpSession session;
     @GetMapping
     public String getAllContacts( Model model){
 

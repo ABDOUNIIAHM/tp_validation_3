@@ -99,4 +99,22 @@ public class UserService implements IntUserService {
         userRepository.save(user);
 
     }
+
+    @Override
+    public boolean validRegistration(String email) {
+        Optional<User> user = userRepository.findByEmail(email);
+        if(user.isEmpty()){
+            return true;
+        }
+        return false;
+    }
+
+    @Override
+    public boolean validLogin(String email, String password) {
+        Optional<User> user = userRepository.findByEmailAndPassword(email,password);
+        if(user.isEmpty()){
+            return false;
+        }
+        return true;
+    }
 }

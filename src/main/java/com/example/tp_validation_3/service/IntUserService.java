@@ -17,4 +17,7 @@ public interface IntUserService {
     void addContactForUser(long id,Contact contact);
     void updateContactOfUser(long id, Contact contact);
     void deleteContactFromUser(long id, long idContact);
+
+    boolean validRegistration(String email);
+    boolean validLogin(String email, String password);
 }
