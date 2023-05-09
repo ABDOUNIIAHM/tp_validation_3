@@ -9,7 +9,7 @@
 <body>
     <div th:replace="header :: header"></div>
     <div class="container">
-    <h1>List of contacts:</h1>
+    <h3>List of contacts:</h3>
         <table class="table mb-3">
             <thead>
             <tr>
@@ -41,8 +41,8 @@
     </div>
 
     <div class="container">
-        <h1>Add Contact</h1>
-        <form method="post" action="/contacts">
+        <h3>Add Contact</h3>
+        <form method="post" action="/contacts" class="w-25 p-3">
             <div class="input-group mb-3">
                 <input type="text" class="form-control" name="firstName" placeholder="first name...">
             </div>
