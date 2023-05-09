@@ -2,6 +2,7 @@ package com.example.tp_validation_3.controller;
 
 import com.example.tp_validation_3.entity.Contact;
 import com.example.tp_validation_3.entity.User;
+import com.example.tp_validation_3.service.IntUserService;
 import com.example.tp_validation_3.service.UserService;
 import jakarta.servlet.http.HttpServlet;
 
@@ -18,7 +19,7 @@ import java.util.List;
 @AllArgsConstructor
 @RequestMapping("/contacts")
 public class UserController {
-    private final UserService userService;
+    private final IntUserService userService;
 
     private User getSessionEmailUser(HttpServletRequest req){
         String email = (String) req.getAttribute("email");
