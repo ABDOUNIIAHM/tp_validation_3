@@ -27,7 +27,7 @@ public class User implements UserDetails {
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL,fetch = FetchType.LAZY)
     private List<Contact> contacts = new ArrayList<>();
 
-    @ManyToMany(cascade = CascadeType.PERSIST)
+    @ManyToMany(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
     private List<Role> roleList = new ArrayList<>();
 
     @Override
