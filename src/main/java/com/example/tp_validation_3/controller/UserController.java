@@ -1,9 +1,8 @@
 package com.example.tp_validation_3.controller;
-
 import com.example.tp_validation_3.entity.Contact;
 import com.example.tp_validation_3.entity.User;
-import com.example.tp_validation_3.entity.dto.UserMapper;
 import com.example.tp_validation_3.service.IntUserService;
+import com.example.tp_validation_3.service.UserDetailsServiceImpl;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
@@ -17,11 +16,11 @@ import java.util.List;
 @RequestMapping("/contacts")
 public class UserController {
     private final IntUserService userService;
-    private UserMapper userMapper;
+    private final UserDetailsServiceImpl userDetailsService;
 
     private User getSessionEmailUser(HttpServletRequest req){
         String email = (String) req.getAttribute("email");
-        User user = userService.findByEmail(email);
+        User user = (User) userDetailsService.loadUserByUsername(email);
         return user;
     }
     @GetMapping

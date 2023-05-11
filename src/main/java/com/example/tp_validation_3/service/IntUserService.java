@@ -20,5 +20,5 @@ public interface IntUserService {
 
     boolean validRegistration(String email);
     boolean validLogin(String email, String password);
-    User findByEmail(String email);
+
 }
