@@ -7,7 +7,6 @@ import java.util.List;
 
 @NoArgsConstructor
 @AllArgsConstructor
-@RequiredArgsConstructor
 @Getter
 @Setter
 public class UserDto {

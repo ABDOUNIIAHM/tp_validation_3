@@ -4,13 +4,8 @@ import com.example.tp_validation_3.entity.Contact;
 import com.example.tp_validation_3.entity.User;
 import com.example.tp_validation_3.entity.dto.UserMapper;
 import com.example.tp_validation_3.service.IntUserService;
-import com.example.tp_validation_3.service.UserService;
-import jakarta.servlet.http.HttpServlet;
-
 import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpSession;
 import lombok.AllArgsConstructor;
-import org.mapstruct.Mapper;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
