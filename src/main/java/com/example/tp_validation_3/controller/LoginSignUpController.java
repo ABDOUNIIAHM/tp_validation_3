@@ -34,7 +34,7 @@ public class LoginSignUpController {
         return "signup";
     }
 
-    @GetMapping("/login")
+    @GetMapping("/")
     public String getLoginPage(Model model, HttpServletRequest req){
         req.getSession().invalidate();
 
@@ -42,7 +42,7 @@ public class LoginSignUpController {
         //model.addAttribute("session",req.getSession());
         return "login";
     }
-    @PostMapping("/login")
+    @PostMapping("/")
     public String checkLogin(@ModelAttribute("user") User user,Model model, HttpServletRequest req){
         if(userService.validLogin(user.getEmail(),user.getPassword())==true){
             req.getSession().setAttribute("email",user.getEmail());
