@@ -2,6 +2,7 @@ package com.example.tp_validation_3.controller;
 
 import com.example.tp_validation_3.entity.Contact;
 import com.example.tp_validation_3.entity.User;
+import com.example.tp_validation_3.entity.dto.UserMapper;
 import com.example.tp_validation_3.service.IntUserService;
 import com.example.tp_validation_3.service.UserService;
 import jakarta.servlet.http.HttpServlet;
@@ -9,6 +10,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
 import lombok.AllArgsConstructor;
+import org.mapstruct.Mapper;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -20,6 +22,7 @@ import java.util.List;
 @RequestMapping("/contacts")
 public class UserController {
     private final IntUserService userService;
+    private UserMapper userMapper;
 
     private User getSessionEmailUser(HttpServletRequest req){
         String email = (String) req.getAttribute("email");
