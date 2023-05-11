@@ -1,8 +1,6 @@
 package com.example.tp_validation_3.entity;
-
 import jakarta.persistence.*;
 import lombok.*;
-
 import java.util.ArrayList;
 import java.util.List;
 
